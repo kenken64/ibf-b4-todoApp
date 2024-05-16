@@ -4,15 +4,16 @@ import { CommonModule } from '@angular/common';
 
 //Material imports
 import { MatRadioModule } from '@angular/material/radio';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { Todo } from '../models/todo';
+import { TaskListComponent } from './task-list.component';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -30,7 +31,8 @@ import { v4 as uuidv4 } from 'uuid';
     MatInputModule,
     MatListModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    TaskListComponent
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
@@ -75,11 +77,7 @@ export class TaskComponent {
     this.form.reset();
   }
 
-  toggleComplete(todo: Todo){
-
-  }
-
-  edit(todo: Todo){
+  onEditTodo(todo: Todo){
     console.log(todo.taskId);
     this.editElemIdx = this.todos.indexOf(todo);
     console.log(this.editElemIdx);
